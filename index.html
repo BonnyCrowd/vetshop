@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Ветаптека</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>🐾 Каталог препаратов</h1>
+  <div class="catalog" id="catalog">
+    <!-- Карточки препаратов (добавим ниже через JS) -->
+  </div>
+
+  <div class="form">
+    <h2>🚚 Способ получения</h2>
+    <label><input type="radio" name="delivery" value="Самовывоз" checked> Самовывоз</label><br>
+    <label><input type="radio" name="delivery" value="Доставка"> Доставка</label>
+
+    <div id="addressFields" style="display: none; margin-top: 10px;">
+      <input type="text" id="address" placeholder="Удобный ПВЗ или адрес">
+    </div>
+
+    <h2>📞 Контакт</h2>
+    <input type="tel" id="phone" placeholder="Номер телефона" required>
+
+    <button onclick="submitOrder()">Оформить заказ</button>
+  </div>
+
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
