@@ -1,32 +1,59 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Ветаптека</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ветаптека - Заказ препаратов</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 10px; max-width: 600px; margin: auto; background: #f9f9f9; }
+  h1 { text-align: center; color: #2c3e50; }
+  .product { display: flex; background: #fff; margin-bottom: 10px; padding: 10px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);}
+  .product img { width: 100px; height: 100px; object-fit: contain; margin-right: 15px; }
+  .product-info { flex: 1; }
+  .product-info h3 { margin: 0 0 5px; }
+  .product-info p { margin: 3px 0; }
+  label { font-weight: bold; }
+  select, input[type=number], input[type=text], input[type=tel] { width: 100%; padding: 7px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; }
+  button { background: #2ecc71; color: white; font-weight: bold; padding: 10px; border: none; border-radius: 7px; width: 100%; cursor: pointer; font-size: 16px;}
+  button:hover { background: #27ae60; }
+  .total { text-align: right; font-weight: bold; font-size: 18px; margin-bottom: 15px; }
+</style>
 </head>
 <body>
-  <h1>🐾 Каталог препаратов</h1>
-  <div class="catalog" id="catalog">
-    <!-- Карточки препаратов (добавим ниже через JS) -->
-  </div>
 
-  <div class="form">
-    <h2>🚚 Способ получения</h2>
-    <label><input type="radio" name="delivery" value="Самовывоз" checked> Самовывоз</label><br>
-    <label><input type="radio" name="delivery" value="Доставка"> Доставка</label>
+<h1>Ветаптека - Заказ препаратов</h1>
 
-    <div id="addressFields" style="display: none; margin-top: 10px;">
-      <input type="text" id="address" placeholder="Удобный ПВЗ или адрес">
-    </div>
+<div id="products"></div>
 
-    <h2>📞 Контакт</h2>
-    <input type="tel" id="phone" placeholder="Номер телефона" required>
+<div>
+  <label for="delivery">Способ доставки:</label>
+  <select id="delivery" required>
+    <option value="" disabled selected>Выберите способ</option>
+    <option value="Самовывоз">Самовывоз</option>
+    <option value="Доставка">Доставка</option>
+  </select>
+</div>
 
-    <button onclick="submitOrder()">Оформить заказ</button>
-  </div>
+<div id="addressBlock" style="display:none;">
+  <label for="address">Адрес или ПВЗ Яндекса (если знаете):</label>
+  <input type="text" id="address" placeholder="Введите адрес или ПВЗ" />
+</div>
 
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+<label for="name">Ваше имя:</label>
+<input type="text" id="name" placeholder="Иван Иванов" required />
+
+<label for="phone">Телефон:</label>
+<input type="tel" id="phone" placeholder="+7 999 123-45-67" required />
+
+<div class="total" id="totalPrice">Итого: 0 ₽</div>
+
+<button id="submit">Оформить заказ</button>
+
+<script src="script.js"></script>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+</body>
+</html>
+>
   <script src="script.js"></script>
 </body>
 </html>
